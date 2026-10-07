@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Trip Price">
+  <meta name="theme-color" content="#0b0d10">
+  <title>Trip Price</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="icon" href="icon-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="readout">
+      <div id="price" class="price">0 Ft</div>
+      <div id="distance" class="distance">0.00 km</div>
+      <div id="fuel" class="fuel">0.00 l</div>
+    </section>
+
+    <button id="toggle" class="toggle" type="button">Start</button>
+
+    <div id="status" class="status">Tap Start to begin tracking</div>
+
+    <div class="actions">
+      <button id="reset" class="secondary" type="button">Reset</button>
+      <button id="openSettings" class="secondary" type="button">⚙ Settings</button>
+    </div>
+
+    <p class="hint">Keep the screen on while tracking — iOS pauses GPS for web apps when the phone is locked.</p>
+  </main>
+
+  <dialog id="settings">
+    <form method="dialog" id="settingsForm">
+      <h2>Settings</h2>
+      <label>
+        Average consumption
+        <span class="field"><input id="consumption" type="number" inputmode="decimal" step="0.1" min="0" required><span>l / 100 km</span></span>
+      </label>
+      <label>
+        Petrol price
+        <span class="field"><input id="fuelPrice" type="number" inputmode="decimal" step="1" min="0" required><span>Ft / l</span></span>
+      </label>
+      <div class="dialog-actions">
+        <button value="cancel" formnovalidate class="secondary" type="submit">Cancel</button>
+        <button value="save" class="primary" type="submit">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
